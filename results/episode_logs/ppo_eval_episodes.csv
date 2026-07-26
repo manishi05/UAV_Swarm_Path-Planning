@@ -1,0 +1,3 @@
+episode,seed,steps,total_reward,coverage_fraction,valid_action_fraction,reward_exploration,reward_coverage,reward_collision_avoidance,reward_boundary,reward_dynamic_obstacle_avoidance,reward_uav_separation,reward_mission_completion,reward_energy_efficiency,collisions_uav_uav,collisions_uav_static_obstacle,collisions_uav_dynamic_obstacle,collisions_uav_boundary
+0,999,500,-678196.0918777294,0.19,0.023333333333333334,861.2554366493576,24193.53136499157,-19900.0,-645807.4000000021,-762.74151033831,-27829.266218388737,0.0,-8951.470950642639,50,19,5,1237
+1,1000,500,-508069.8634989877,0.41089108910891087,0.05333333333333334,1160.4790148866384,31847.17944282599,-11050.0,-518904.0299999977,-2289.5156423057697,0.0,0.0,-8833.976314394531,0,10,5,1160

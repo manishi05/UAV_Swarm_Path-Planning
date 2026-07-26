@@ -1,0 +1,4 @@
+2026-07-24 19:22:53,812 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded model from results/models/ppo_swarm_final.zip
+2026-07-24 19:22:55,172 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 0: reward=-678196.09 coverage=0.190 collisions={'uav_uav': 50, 'uav_static_obstacle': 19, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1237}
+2026-07-24 19:22:56,556 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 1: reward=-508069.86 coverage=0.411 collisions={'uav_uav': 0, 'uav_static_obstacle': 10, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1160}
+2026-07-24 19:22:56,966 | INFO    | uav_swarm_ppo.ppo.evaluate | Evaluation over 2 episodes: reward mean=-593132.98 std=85063.11 | coverage mean=0.300 std=0.110
