@@ -49,7 +49,7 @@
     "collision_static_obstacle": -400.0,
     "collision_dynamic_obstacle": -450.0,
     "blocked_cell_penalty": -150.0,
-    "out_of_bounds": -300.0,
+    "out_of_bounds": -100.0,
     "dynamic_obstacle_proximity_coeff": 50.0,
     "dynamic_obstacle_warning_radius_m": 10.0,
     "collision_uav_uav": -400.0,
@@ -92,6 +92,14 @@
     "model_dir": "results/models",
     "monitor_dir": "results/monitor"
   },
+  "vecnormalize": {
+    "norm_obs": true,
+    "norm_reward": true,
+    "clip_obs": 10.0,
+    "clip_reward": 10.0,
+    "norm_obs_keys": null,
+    "gamma": 0.99
+  },
   "qlearning": {
     "gamma": 0.91,
     "epsilon_start": 0.47,
@@ -102,7 +110,7 @@
     "learning_rate": 0.001,
     "batch_size": 32,
     "train_every_n_steps": 1,
-    "n_episodes": 3,
+    "n_episodes": 10,
     "max_steps_per_episode": 500,
     "use_paper_faithful_first_layer": true,
     "model_dir": "results/models/qlearning"

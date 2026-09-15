@@ -1,0 +1,3 @@
+2026-07-26 07:03:35,253 | INFO    | uav_swarm_ppo.baselines.astar | Episode 1/2: reward=-406128.44 coverage=0.995 collisions={'uav_uav': 104, 'uav_static_obstacle': 0, 'uav_dynamic_obstacle': 2, 'uav_boundary': 829}
+2026-07-26 07:03:35,704 | INFO    | uav_swarm_ppo.baselines.astar | Episode 2/2: reward=50655.43 coverage=1.000 collisions={'uav_uav': 16, 'uav_static_obstacle': 0, 'uav_dynamic_obstacle': 1, 'uav_boundary': 56}
+2026-07-26 07:03:36,317 | INFO    | uav_swarm_ppo.baselines.astar | A* baseline over 2 episodes: reward mean=-177736.50 | coverage mean=0.998

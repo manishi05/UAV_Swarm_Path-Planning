@@ -1,0 +1,26 @@
+2026-07-24 19:22:54,139 | INFO    | uav_swarm_ppo.episode_logger | Episode 0 started (seed=999).
+2026-07-24 19:22:55,172 | INFO    | uav_swarm_ppo.episode_logger | Episode 0 ended: steps=500 total_reward=-678196.09 coverage=0.190 valid_action_frac=0.023 collisions={'uav_uav': 50, 'uav_static_obstacle': 19, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1237}
+2026-07-24 19:22:55,479 | INFO    | uav_swarm_ppo.episode_logger | Episode 1 started (seed=1000).
+2026-07-24 19:22:56,555 | INFO    | uav_swarm_ppo.episode_logger | Episode 1 ended: steps=500 total_reward=-508069.86 coverage=0.411 valid_action_frac=0.053 collisions={'uav_uav': 0, 'uav_static_obstacle': 10, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1160}
+2026-07-24 19:22:56,965 | INFO    | uav_swarm_ppo.episode_logger | EpisodeLogger closed. Summary at results/episode_logs/ppo_eval_episodes.csv
+2026-08-27 01:10:16,097 | INFO    | uav_swarm_ppo.episode_logger | Episode 0 started (seed=42).
+2026-08-27 01:10:17,647 | INFO    | uav_swarm_ppo.episode_logger | Episode 0 ended: steps=500 total_reward=-241086.08 coverage=0.515 valid_action_frac=0.067 collisions={'uav_uav': 44, 'uav_static_obstacle': 48, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1068}
+2026-08-27 01:10:18,194 | INFO    | uav_swarm_ppo.episode_logger | Episode 1 started (seed=43).
+2026-08-27 01:10:19,675 | INFO    | uav_swarm_ppo.episode_logger | Episode 1 ended: steps=500 total_reward=-304146.74 coverage=0.259 valid_action_frac=0.033 collisions={'uav_uav': 50, 'uav_static_obstacle': 1, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1355}
+2026-08-27 01:10:20,249 | INFO    | uav_swarm_ppo.episode_logger | Episode 2 started (seed=44).
+2026-08-27 01:10:21,634 | INFO    | uav_swarm_ppo.episode_logger | Episode 2 ended: steps=500 total_reward=-218675.66 coverage=0.495 valid_action_frac=0.065 collisions={'uav_uav': 8, 'uav_static_obstacle': 34, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1053}
+2026-08-27 01:10:22,237 | INFO    | uav_swarm_ppo.episode_logger | Episode 3 started (seed=45).
+2026-08-27 01:10:23,830 | INFO    | uav_swarm_ppo.episode_logger | Episode 3 ended: steps=500 total_reward=-230769.99 coverage=0.415 valid_action_frac=0.053 collisions={'uav_uav': 0, 'uav_static_obstacle': 10, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1148}
+2026-08-27 01:10:24,244 | INFO    | uav_swarm_ppo.episode_logger | Episode 4 started (seed=46).
+2026-08-27 01:10:25,796 | INFO    | uav_swarm_ppo.episode_logger | Episode 4 ended: steps=500 total_reward=-240769.91 coverage=0.559 valid_action_frac=0.073 collisions={'uav_uav': 26, 'uav_static_obstacle': 43, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1105}
+2026-08-27 01:10:26,235 | INFO    | uav_swarm_ppo.episode_logger | Episode 5 started (seed=47).
+2026-08-27 01:10:27,917 | INFO    | uav_swarm_ppo.episode_logger | Episode 5 ended: steps=500 total_reward=-198365.28 coverage=0.520 valid_action_frac=0.067 collisions={'uav_uav': 4, 'uav_static_obstacle': 10, 'uav_dynamic_obstacle': 2, 'uav_boundary': 989}
+2026-08-27 01:10:28,445 | INFO    | uav_swarm_ppo.episode_logger | Episode 6 started (seed=48).
+2026-08-27 01:10:30,036 | INFO    | uav_swarm_ppo.episode_logger | Episode 6 ended: steps=500 total_reward=-167610.19 coverage=0.433 valid_action_frac=0.057 collisions={'uav_uav': 2, 'uav_static_obstacle': 5, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1060}
+2026-08-27 01:10:30,513 | INFO    | uav_swarm_ppo.episode_logger | Episode 7 started (seed=49).
+2026-08-27 01:10:32,132 | INFO    | uav_swarm_ppo.episode_logger | Episode 7 ended: steps=500 total_reward=-272599.69 coverage=0.308 valid_action_frac=0.039 collisions={'uav_uav': 24, 'uav_static_obstacle': 4, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1257}
+2026-08-27 01:10:32,636 | INFO    | uav_swarm_ppo.episode_logger | Episode 8 started (seed=50).
+2026-08-27 01:10:34,097 | INFO    | uav_swarm_ppo.episode_logger | Episode 8 ended: steps=500 total_reward=-321198.44 coverage=0.310 valid_action_frac=0.039 collisions={'uav_uav': 100, 'uav_static_obstacle': 13, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1288}
+2026-08-27 01:10:34,704 | INFO    | uav_swarm_ppo.episode_logger | Episode 9 started (seed=51).
+2026-08-27 01:10:36,255 | INFO    | uav_swarm_ppo.episode_logger | Episode 9 ended: steps=500 total_reward=-285763.99 coverage=0.345 valid_action_frac=0.044 collisions={'uav_uav': 38, 'uav_static_obstacle': 6, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1283}
+2026-08-27 01:10:36,256 | INFO    | uav_swarm_ppo.episode_logger | EpisodeLogger closed. Summary at results/episode_logs\ppo_eval_episodes.csv

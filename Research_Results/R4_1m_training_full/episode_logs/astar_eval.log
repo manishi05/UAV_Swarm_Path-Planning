@@ -1,0 +1,5 @@
+2026-07-26 07:03:34,735 | INFO    | uav_swarm_ppo.episode_logger | Episode 0 started (seed=999).
+2026-07-26 07:03:35,253 | INFO    | uav_swarm_ppo.episode_logger | Episode 0 ended: steps=500 total_reward=-406128.44 coverage=0.995 valid_action_frac=0.132 collisions={'uav_uav': 104, 'uav_static_obstacle': 0, 'uav_dynamic_obstacle': 2, 'uav_boundary': 829}
+2026-07-26 07:03:35,449 | INFO    | uav_swarm_ppo.episode_logger | Episode 1 started (seed=1000).
+2026-07-26 07:03:35,704 | INFO    | uav_swarm_ppo.episode_logger | Episode 1 ended: steps=220 total_reward=50655.43 coverage=1.000 valid_action_frac=0.300 collisions={'uav_uav': 16, 'uav_static_obstacle': 0, 'uav_dynamic_obstacle': 1, 'uav_boundary': 56}
+2026-07-26 07:03:36,316 | INFO    | uav_swarm_ppo.episode_logger | EpisodeLogger closed. Summary at results/episode_logs/astar_eval_episodes.csv

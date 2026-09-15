@@ -280,7 +280,7 @@ class AStarSwarmController:
 
 
 def run_astar(config: ExperimentConfig, vertices: List[Tuple[float, float]],
-              n_episodes: Optional[int] = None, seed: int = 999) -> Tuple[List[float], List[float]]:
+              n_episodes: Optional[int] = None, seed: int = 42) -> Tuple[List[float], List[float]]:
     """
     Runs the A* baseline for `n_episodes` (default: `AStarConfig.n_episodes`)
     episodes against `SwarmFarmEnv`, logging full Goal-3-style episode

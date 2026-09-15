@@ -24,6 +24,8 @@ import os
 from collections import defaultdict
 from typing import Dict, Optional
 
+import numpy as np
+
 from environment.collision import CollisionType
 from environment.reward import RewardBreakdown
 from utils.logger import get_logger
@@ -104,12 +106,27 @@ class EpisodeLogger:
             "collision_counts": defaultdict(int),
             "coverage_fraction": 0.0,
             "valid_action_fraction": 0.0,
+            "cumulative_reward": 0.0,
         }
         self._step_records = []
         self._logger.info("Episode %d started (seed=%d).", self._episode_idx, seed)
         return self._episode_idx
 
-    def log_step(self, reward_breakdown: RewardBreakdown, info: Dict) -> None:
+    @property
+    def verbose_step_logging(self) -> bool:
+        """
+        Whether this logger will actually use a per-step `step_context`
+        if given one. Exposed publicly so `SwarmFarmEnv.step()` can skip
+        building the (moderately expensive: per-UAV state extraction,
+        wind magnitude, etc.) rich context entirely when verbose logging
+        is off -- which is the default, and what bulk PPO/Q-Learning
+        training runs use, keeping runtime overhead at effectively zero
+        for the common case per the "minimize runtime overhead" requirement.
+        """
+        return self._verbose
+
+    def log_step(self, reward_breakdown: RewardBreakdown, info: Dict,
+                 step_context: Optional[Dict] = None) -> None:
         """
         Records one step's outcome. Called once per `env.step()`.
 
@@ -121,7 +138,22 @@ class EpisodeLogger:
         info : Dict
             The `info` dict returned by `SwarmFarmEnv.step()`, containing
             `coverage_fraction`, `valid_action_fraction`, and
-            `collision_counts` (cumulative counts for the episode so far).
+            `collision_counts` (cumulative counts for the episode so far
+            -- used only for the episode-summary row; per-step collision
+            counts, if you need "when did boundary violations begin"
+            granularity, come from `step_context` instead, see below).
+        step_context : Optional[Dict]
+            Full per-timestep simulator state, built by
+            `SwarmFarmEnv.step()` (see the `_build_step_context` call
+            site there). When provided AND `verbose_step_logging=True`,
+            this is what makes the per-step CSV publication-grade:
+            UAV positions/velocities/battery, wind vector, per-step (not
+            cumulative) collision counts, obstacle counts, and episode
+            termination flags -- everything needed to independently
+            reconstruct and verify any reported metric without re-running
+            the simulation. If `None` (e.g. a caller not yet updated, or
+            verbose logging used outside `SwarmFarmEnv`), falls back to
+            the minimal step+reward-only record for backward compatibility.
         """
         if self._current is None:
             raise RuntimeError("log_step() called before start_episode(). "
@@ -129,19 +161,133 @@ class EpisodeLogger:
 
         c = self._current
         c["steps"] += 1
-        for key, value in reward_breakdown.as_dict().items():
+        breakdown_dict = reward_breakdown.as_dict()
+        for key, value in breakdown_dict.items():
             c["breakdown_sums"][key] += value
+        c["cumulative_reward"] += breakdown_dict["total"]
 
         # collision_counts in `info` are already cumulative for the
         # episode (see SwarmFarmEnv._episode_collision_counts), so we
-        # take the latest snapshot rather than summing again.
+        # take the latest snapshot rather than summing again -- this
+        # feeds the episode-SUMMARY row only. Per-step collision counts
+        # (for the verbose per-step CSV) come from step_context instead,
+        # which carries this step's raw CollisionReport.counts, not the
+        # running total -- the two are deliberately different sources
+        # for two different questions ("how many total" vs "when did they start").
         c["collision_counts"] = dict(info.get("collision_counts", {}))
         c["coverage_fraction"] = info.get("coverage_fraction", c["coverage_fraction"])
         c["valid_action_fraction"] = info.get("valid_action_fraction", c["valid_action_fraction"])
 
         if self._verbose:
-            record = {"step": c["steps"], **reward_breakdown.as_dict()}
+            if step_context is not None:
+                record = self._build_verbose_record(c, breakdown_dict, step_context)
+            else:
+                # Backward-compatible minimal fallback (pre-upgrade behavior).
+                record = {"step": c["steps"], **breakdown_dict}
             self._step_records.append(record)
+
+    @staticmethod
+    def _build_verbose_record(episode_state: Dict, breakdown_dict: Dict, ctx: Dict) -> Dict:
+        """
+        Flattens one timestep's full simulator state into a single,
+        pandas-ready dict (no nested lists/tuples/objects -- every value
+        is a plain scalar, per the "analysis-friendly, not a Python
+        object dump" requirement). Per-UAV vector quantities (position,
+        velocity, battery) are expanded into `uav{i}_x`, `uav{i}_y`, etc.
+        columns rather than stored as a single stringified list, so a
+        reviewer (or `pandas`) can select/plot e.g. `uav0_x` directly
+        without a parsing step.
+        """
+        record = {
+            # --- General ---
+            "step": episode_state["steps"],
+            "episode": episode_state["episode"],
+            "seed": episode_state["seed"],
+            "time_seconds": ctx["time_seconds"],
+
+            # --- Coverage ---
+            "coverage_fraction": ctx["coverage_fraction"],
+            "visited_cells": ctx["visited_cells"],
+            "total_flyable_cells": ctx["total_flyable_cells"],
+            "new_cells_visited_this_step": ctx["new_cells_visited_this_step"],
+        }
+
+        # --- UAV state (flattened, one set of columns per UAV) ---
+        batteries = []
+        for i, uav_state in enumerate(ctx["uav_states"]):
+            record[f"uav{i}_x"] = uav_state["x"]
+            record[f"uav{i}_y"] = uav_state["y"]
+            record[f"uav{i}_vx"] = uav_state["vx"]
+            record[f"uav{i}_vy"] = uav_state["vy"]
+            record[f"uav{i}_battery_frac"] = uav_state["battery_frac"]
+            record[f"uav{i}_alive"] = uav_state["alive"]
+            # Raw ActionType ordinal this UAV was commanded this step
+            # (0=STAY, 1=UP, 2=DOWN, 3=LEFT, 4=RIGHT -- see
+            # environment/drone.py::ActionType). Added so a reviewer can
+            # distinguish "policy chose not to move" from "policy moved
+            # but was deflected/blocked/collided" when new cells discovered
+            # is zero -- new_cells_visited_this_step alone cannot make
+            # that distinction, which matters directly for diagnosing a
+            # coverage plateau (one of the explicit research questions
+            # this logger is required to answer).
+            record[f"uav{i}_action"] = uav_state["action"]
+            batteries.append(uav_state["battery_frac"])
+        # Swarm-level battery summary -- added because "when did batteries
+        # become limiting" (an explicit research question in the request)
+        # is awkward to answer from N separate per-UAV columns alone when
+        # swarm size varies across experiments; these two columns answer
+        # it directly and are comparable across different n_uavs settings.
+        record["mean_battery_fraction"] = float(np.mean(batteries)) if batteries else 0.0
+        record["min_battery_fraction"] = float(np.min(batteries)) if batteries else 0.0
+        record["n_alive_uavs"] = sum(1 for u in ctx["uav_states"] if u["alive"])
+
+        # --- Environment ---
+        record["wind_x"] = ctx["wind_vector"][0]
+        record["wind_y"] = ctx["wind_vector"][1]
+        # Added: wind speed as a scalar magnitude. "Did wind affect
+        # coverage" (an explicit research question) is a direct
+        # correlation between this one column and coverage_fraction /
+        # new_cells_visited_this_step -- with only wind_x/wind_y a
+        # researcher would have to compute this themselves every time.
+        record["wind_speed_mps"] = float(np.hypot(ctx["wind_vector"][0], ctx["wind_vector"][1]))
+        record["number_dynamic_obstacles"] = ctx["number_dynamic_obstacles"]
+        record["number_static_obstacles"] = ctx["number_static_obstacles"]
+
+        # --- Collision information (PER-STEP counts, not cumulative --
+        # this is what makes "when did boundary violations begin"
+        # answerable: cumulative counts alone can only tell you the final
+        # total, not the onset step) ---
+        record["uav_uav_collisions"] = ctx["collisions_this_step"].get("uav_uav", 0)
+        record["uav_static_collisions"] = ctx["collisions_this_step"].get("uav_static_obstacle", 0)
+        record["uav_dynamic_collisions"] = ctx["collisions_this_step"].get("uav_dynamic_obstacle", 0)
+        record["boundary_violations"] = ctx["collisions_this_step"].get("uav_boundary", 0)
+
+        # --- Reward breakdown (all 8 categories + total) ---
+        record["exploration"] = breakdown_dict["exploration"]
+        record["coverage"] = breakdown_dict["coverage"]
+        record["collision_avoidance"] = breakdown_dict["collision_avoidance"]
+        record["boundary"] = breakdown_dict["boundary"]
+        record["dynamic_obstacle_avoidance"] = breakdown_dict["dynamic_obstacle_avoidance"]
+        record["uav_separation"] = breakdown_dict["uav_separation"]
+        record["mission_completion"] = breakdown_dict["mission_completion"]
+        record["energy_efficiency"] = breakdown_dict["energy_efficiency"]
+        record["total_reward"] = breakdown_dict["total"]
+        # Added: running cumulative reward within the episode. Lets a
+        # reviewer plot the reward curve for a single episode directly
+        # from one column (`df.plot(x='step', y='cumulative_reward')`)
+        # instead of computing `total_reward.cumsum()` themselves --
+        # cheap to store, and doubles as an independent cross-check
+        # (their own cumsum should equal this column exactly, or something
+        # is wrong with either the logger or their reconstruction).
+        record["cumulative_reward"] = episode_state["cumulative_reward"]
+
+        # --- Episode statistics ---
+        record["valid_action_fraction"] = ctx["valid_action_fraction"]
+        record["mission_completed"] = ctx["mission_completed"]
+        record["terminated"] = ctx["terminated"]
+        record["truncated"] = ctx["truncated"]
+
+        return record
 
     def end_episode(self) -> Dict:
         """

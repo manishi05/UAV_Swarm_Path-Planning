@@ -1,0 +1,6 @@
+2026-07-26 07:04:22,804 | INFO    | uav_swarm_ppo.episode_logger | Episode 0 started (seed=999).
+2026-07-26 07:04:23,007 | INFO    | uav_swarm_ppo.episode_logger | Episode 1 started (seed=999).
+2026-07-26 07:04:23,623 | INFO    | uav_swarm_ppo.episode_logger | Episode 1 ended: steps=500 total_reward=-760901.17 coverage=0.124 valid_action_frac=0.015 collisions={'uav_uav': 0, 'uav_static_obstacle': 3, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1470}
+2026-07-26 07:04:23,821 | INFO    | uav_swarm_ppo.episode_logger | Episode 2 started (seed=1000).
+2026-07-26 07:04:24,459 | INFO    | uav_swarm_ppo.episode_logger | Episode 2 ended: steps=500 total_reward=-830258.94 coverage=0.108 valid_action_frac=0.013 collisions={'uav_uav': 0, 'uav_static_obstacle': 160, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1479}
+2026-07-26 07:04:24,793 | INFO    | uav_swarm_ppo.episode_logger | EpisodeLogger closed. Summary at results/episode_logs/qlearning_eval_episodes.csv

@@ -1,0 +1,69 @@
+2026-07-24 19:22:53,812 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded model from results/models/ppo_swarm_final.zip
+2026-07-24 19:22:55,172 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 0: reward=-678196.09 coverage=0.190 collisions={'uav_uav': 50, 'uav_static_obstacle': 19, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1237}
+2026-07-24 19:22:56,556 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 1: reward=-508069.86 coverage=0.411 collisions={'uav_uav': 0, 'uav_static_obstacle': 10, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1160}
+2026-07-24 19:22:56,966 | INFO    | uav_swarm_ppo.ppo.evaluate | Evaluation over 2 episodes: reward mean=-593132.98 std=85063.11 | coverage mean=0.300 std=0.110
+2026-08-27 01:10:10,759 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded VecNormalize statistics from results\models\vecnormalize_200000_steps.pkl (forced training=False, norm_reward=False).
+2026-08-27 01:10:15,659 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded model from results\models\ppo_swarm_200000_steps.zip
+2026-08-27 01:10:17,648 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 0: reward=-241086.08 coverage=0.515 collisions={'uav_uav': 44, 'uav_static_obstacle': 48, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1068}
+2026-08-27 01:10:19,676 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 1: reward=-304146.74 coverage=0.259 collisions={'uav_uav': 50, 'uav_static_obstacle': 1, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1355}
+2026-08-27 01:10:21,634 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 2: reward=-218675.66 coverage=0.495 collisions={'uav_uav': 8, 'uav_static_obstacle': 34, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1053}
+2026-08-27 01:10:23,831 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 3: reward=-230769.99 coverage=0.415 collisions={'uav_uav': 0, 'uav_static_obstacle': 10, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1148}
+2026-08-27 01:10:25,796 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 4: reward=-240769.91 coverage=0.559 collisions={'uav_uav': 26, 'uav_static_obstacle': 43, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1105}
+2026-08-27 01:10:27,918 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 5: reward=-198365.28 coverage=0.520 collisions={'uav_uav': 4, 'uav_static_obstacle': 10, 'uav_dynamic_obstacle': 2, 'uav_boundary': 989}
+2026-08-27 01:10:30,036 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 6: reward=-167610.19 coverage=0.433 collisions={'uav_uav': 2, 'uav_static_obstacle': 5, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1060}
+2026-08-27 01:10:32,133 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 7: reward=-272599.69 coverage=0.308 collisions={'uav_uav': 24, 'uav_static_obstacle': 4, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1257}
+2026-08-27 01:10:34,098 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 8: reward=-321198.44 coverage=0.310 collisions={'uav_uav': 100, 'uav_static_obstacle': 13, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1288}
+2026-08-27 01:10:36,256 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 9: reward=-285763.99 coverage=0.345 collisions={'uav_uav': 38, 'uav_static_obstacle': 6, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1283}
+2026-08-27 01:10:36,257 | INFO    | uav_swarm_ppo.ppo.evaluate | Evaluation over 10 episodes: reward mean=-248098.60 std=45524.31 | coverage mean=0.416 std=0.100
+2026-08-27 02:56:10,392 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded VecNormalize statistics from results\models\vecnormalize_final.pkl (forced training=False, norm_reward=False).
+2026-08-27 02:56:14,506 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded model from results\models\ppo_swarm_final.zip
+2026-08-27 02:56:16,258 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 0: reward=-321845.04 coverage=0.302 collisions={'uav_uav': 82, 'uav_static_obstacle': 59, 'uav_dynamic_obstacle': 3, 'uav_boundary': 1220}
+2026-08-27 02:56:18,143 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 1: reward=-382608.28 coverage=0.254 collisions={'uav_uav': 228, 'uav_static_obstacle': 1, 'uav_dynamic_obstacle': 3, 'uav_boundary': 1356}
+2026-08-27 02:56:20,232 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 2: reward=-119583.71 coverage=0.534 collisions={'uav_uav': 6, 'uav_static_obstacle': 22, 'uav_dynamic_obstacle': 2, 'uav_boundary': 616}
+2026-08-27 02:56:22,188 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 3: reward=-116085.46 coverage=0.665 collisions={'uav_uav': 0, 'uav_static_obstacle': 12, 'uav_dynamic_obstacle': 7, 'uav_boundary': 635}
+2026-08-27 02:56:23,962 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 4: reward=-288338.33 coverage=0.431 collisions={'uav_uav': 186, 'uav_static_obstacle': 21, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1002}
+2026-08-27 02:56:25,770 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 5: reward=-42061.99 coverage=0.770 collisions={'uav_uav': 2, 'uav_static_obstacle': 27, 'uav_dynamic_obstacle': 3, 'uav_boundary': 261}
+2026-08-27 02:56:27,624 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 6: reward=-133227.31 coverage=0.739 collisions={'uav_uav': 4, 'uav_static_obstacle': 10, 'uav_dynamic_obstacle': 2, 'uav_boundary': 909}
+2026-08-27 02:56:29,426 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 7: reward=-75293.16 coverage=0.786 collisions={'uav_uav': 0, 'uav_static_obstacle': 34, 'uav_dynamic_obstacle': 5, 'uav_boundary': 427}
+2026-08-27 02:56:31,295 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 8: reward=-91971.41 coverage=0.645 collisions={'uav_uav': 0, 'uav_static_obstacle': 25, 'uav_dynamic_obstacle': 2, 'uav_boundary': 517}
+2026-08-27 02:56:33,270 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 9: reward=-164868.19 coverage=0.455 collisions={'uav_uav': 0, 'uav_static_obstacle': 15, 'uav_dynamic_obstacle': 6, 'uav_boundary': 784}
+2026-08-27 02:56:33,272 | INFO    | uav_swarm_ppo.ppo.evaluate | Evaluation over 10 episodes: reward mean=-173588.29 std=109721.25 | coverage mean=0.558 std=0.183
+2026-08-27 11:48:58,235 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded VecNormalize statistics from results\models\vecnormalize_10000_steps.pkl (forced training=False, norm_reward=False).
+2026-08-27 11:49:05,071 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded model from results\models\ppo_swarm_10000_steps.zip
+2026-08-27 11:49:10,889 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 0: reward=-536688.24 coverage=0.228 collisions={'uav_uav': 522, 'uav_static_obstacle': 8, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1413}
+2026-08-27 11:49:16,691 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 1: reward=-284341.90 coverage=0.249 collisions={'uav_uav': 26, 'uav_static_obstacle': 3, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1287}
+2026-08-27 11:49:22,467 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 2: reward=-316400.64 coverage=0.358 collisions={'uav_uav': 122, 'uav_static_obstacle': 28, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1235}
+2026-08-27 11:49:28,257 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 3: reward=-313232.14 coverage=0.330 collisions={'uav_uav': 94, 'uav_static_obstacle': 2, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1367}
+2026-08-27 11:49:33,987 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 4: reward=-225877.80 coverage=0.297 collisions={'uav_uav': 0, 'uav_static_obstacle': 11, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1108}
+2026-08-27 11:49:39,840 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 5: reward=-317627.68 coverage=0.375 collisions={'uav_uav': 146, 'uav_static_obstacle': 3, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1239}
+2026-08-27 11:49:45,641 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 6: reward=-314262.63 coverage=0.143 collisions={'uav_uav': 0, 'uav_static_obstacle': 2, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1447}
+2026-08-27 11:49:51,436 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 7: reward=-563441.62 coverage=0.095 collisions={'uav_uav': 534, 'uav_static_obstacle': 0, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1468}
+2026-08-27 11:49:57,129 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 8: reward=-682297.83 coverage=0.030 collisions={'uav_uav': 776, 'uav_static_obstacle': 0, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1483}
+2026-08-27 11:50:02,946 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 9: reward=-250554.43 coverage=0.385 collisions={'uav_uav': 16, 'uav_static_obstacle': 17, 'uav_dynamic_obstacle': 2, 'uav_boundary': 1144}
+2026-08-27 11:50:02,948 | INFO    | uav_swarm_ppo.ppo.evaluate | Evaluation over 10 episodes: reward mean=-380472.49 std=146955.30 | coverage mean=0.249 std=0.118
+2026-08-27 11:53:57,894 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded VecNormalize statistics from results\models\vecnormalize_100000_steps.pkl (forced training=False, norm_reward=False).
+2026-08-27 11:54:02,833 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded model from results\models\ppo_swarm_100000_steps.zip
+2026-08-27 11:54:08,471 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 0: reward=-422312.88 coverage=0.252 collisions={'uav_uav': 274, 'uav_static_obstacle': 33, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1357}
+2026-08-27 11:54:13,823 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 1: reward=-265473.19 coverage=0.468 collisions={'uav_uav': 50, 'uav_static_obstacle': 20, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1187}
+2026-08-27 11:54:15,322 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 2: reward=-252459.19 coverage=0.431 collisions={'uav_uav': 20, 'uav_static_obstacle': 23, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1173}
+2026-08-27 11:54:16,984 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 3: reward=-308045.03 coverage=0.320 collisions={'uav_uav': 96, 'uav_static_obstacle': 2, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1298}
+2026-08-27 11:54:22,582 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 4: reward=-361593.13 coverage=0.178 collisions={'uav_uav': 120, 'uav_static_obstacle': 7, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1410}
+2026-08-27 11:54:28,829 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 5: reward=-309308.46 coverage=0.410 collisions={'uav_uav': 126, 'uav_static_obstacle': 7, 'uav_dynamic_obstacle': 5, 'uav_boundary': 1240}
+2026-08-27 11:54:34,676 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 6: reward=-284034.45 coverage=0.379 collisions={'uav_uav': 60, 'uav_static_obstacle': 4, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1273}
+2026-08-27 11:54:40,413 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 7: reward=-306505.45 coverage=0.159 collisions={'uav_uav': 26, 'uav_static_obstacle': 0, 'uav_dynamic_obstacle': 1, 'uav_boundary': 1365}
+2026-08-27 11:54:46,149 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 8: reward=-301359.59 coverage=0.180 collisions={'uav_uav': 2, 'uav_static_obstacle': 11, 'uav_dynamic_obstacle': 0, 'uav_boundary': 1369}
+2026-08-27 11:54:52,013 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 9: reward=-283807.22 coverage=0.270 collisions={'uav_uav': 24, 'uav_static_obstacle': 1, 'uav_dynamic_obstacle': 3, 'uav_boundary': 1282}
+2026-08-27 11:54:52,015 | INFO    | uav_swarm_ppo.ppo.evaluate | Evaluation over 10 episodes: reward mean=-309489.86 std=46923.82 | coverage mean=0.305 std=0.108
+2026-08-27 14:38:56,181 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded VecNormalize statistics from results\models\vecnormalize_1000000_steps.pkl (forced training=False, norm_reward=False).
+2026-08-27 14:38:58,746 | INFO    | uav_swarm_ppo.ppo.evaluate | Loaded model from results\models\ppo_swarm_1000000_steps.zip
+2026-08-27 14:38:59,959 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 0: reward=-129730.29 coverage=0.812 collisions={'uav_uav': 0, 'uav_static_obstacle': 31, 'uav_dynamic_obstacle': 1, 'uav_boundary': 749}
+2026-08-27 14:39:01,362 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 1: reward=-153240.14 coverage=0.587 collisions={'uav_uav': 0, 'uav_static_obstacle': 19, 'uav_dynamic_obstacle': 2, 'uav_boundary': 765}
+2026-08-27 14:39:02,559 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 2: reward=-164491.04 coverage=0.569 collisions={'uav_uav': 0, 'uav_static_obstacle': 34, 'uav_dynamic_obstacle': 0, 'uav_boundary': 911}
+2026-08-27 14:39:03,885 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 3: reward=-94950.92 coverage=0.785 collisions={'uav_uav': 6, 'uav_static_obstacle': 21, 'uav_dynamic_obstacle': 1, 'uav_boundary': 540}
+2026-08-27 14:39:05,079 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 4: reward=-184897.24 coverage=0.698 collisions={'uav_uav': 38, 'uav_static_obstacle': 85, 'uav_dynamic_obstacle': 1, 'uav_boundary': 700}
+2026-08-27 14:39:06,338 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 5: reward=-135400.65 coverage=0.750 collisions={'uav_uav': 4, 'uav_static_obstacle': 20, 'uav_dynamic_obstacle': 5, 'uav_boundary': 752}
+2026-08-27 14:39:07,573 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 6: reward=-154841.44 coverage=0.665 collisions={'uav_uav': 16, 'uav_static_obstacle': 32, 'uav_dynamic_obstacle': 0, 'uav_boundary': 735}
+2026-08-27 14:39:08,821 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 7: reward=-115998.77 coverage=0.736 collisions={'uav_uav': 0, 'uav_static_obstacle': 28, 'uav_dynamic_obstacle': 2, 'uav_boundary': 632}
+2026-08-27 14:39:10,032 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 8: reward=-108272.61 coverage=0.730 collisions={'uav_uav': 4, 'uav_static_obstacle': 16, 'uav_dynamic_obstacle': 2, 'uav_boundary': 612}
+2026-08-27 14:39:11,238 | INFO    | uav_swarm_ppo.ppo.evaluate | Episode 9: reward=-119611.04 coverage=0.755 collisions={'uav_uav': 0, 'uav_static_obstacle': 36, 'uav_dynamic_obstacle': 2, 'uav_boundary': 616}
+2026-08-27 14:39:11,239 | INFO    | uav_swarm_ppo.ppo.evaluate | Evaluation over 10 episodes: reward mean=-136143.41 std=26489.33 | coverage mean=0.709 std=0.076
